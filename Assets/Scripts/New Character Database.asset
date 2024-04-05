@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c06cecd8b5545d498eff4dbc8991fb0, type: 3}
+  m_Name: New Character Database
+  m_EditorClassIdentifier: 
+  character:
+  - characterName: The Capsule
+    characterSprite: {fileID: -9095717837082945937, guid: 7b849781127857f41961084b0b9cb4d9, type: 3}
+  - characterName: The 9-Sliced
+    characterSprite: {fileID: -5177388603050735206, guid: 3574a24cff4e2164ebbd5a09af0c5b01, type: 3}
+  - characterName: The Diamond
+    characterSprite: {fileID: 3625043607559282579, guid: 49e3f97c3bea1f0479a2bf30de3e9c2d, type: 3}
