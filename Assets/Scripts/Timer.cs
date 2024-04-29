@@ -35,4 +35,10 @@ public class Timer : MonoBehaviour
     {
         timerText.text = "Time: " + timeLeft;
     }
+
+    public void TimerPickup(float time)
+    {
+        timeRemaining += time;
+        UpdateTime(timeRemaining);
+    }
 }

@@ -4,11 +4,23 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - MyCoin
   - MySpike
   - MyBox
-  - MyCoin
   - Flag
+  - Gem
+  - Stud
+  - Lava
+  - Timer
+  - FallingSpike
+  - Blade
+  - Magnet
   - Ground
+  - RedPill
+  - BluePill
+  - MyFry
+  - Boss
+  - Dumbell
   layers:
   - Default
   - TransparentFX
@@ -16,10 +28,10 @@ TagManager:
   - 
   - Water
   - UI
+  - Ground
   - 
-  - 
-  - 
-  - 
+  - Player
+  - Hurt
   - 
   - 
   - 

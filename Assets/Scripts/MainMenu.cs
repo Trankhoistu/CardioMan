@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public AudioSource sound;
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 
     public void GoToSettingsMenu()
@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void GoToDeathScreen()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(14);
     }
 
     public void GoToInfo()
@@ -41,7 +41,13 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Leaderboard");
     }
 
-    public void PlayButton() {
+    public void GoToSelect()
+    {
+        SceneManager.LoadScene("Character Selection");
+    }
+
+    public void PlayButton()
+    {
         sound.Play();
     }
 }

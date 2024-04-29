@@ -19,3 +19,11 @@ MonoBehaviour:
     characterSprite: {fileID: -5177388603050735206, guid: 3574a24cff4e2164ebbd5a09af0c5b01, type: 3}
   - characterName: The Diamond
     characterSprite: {fileID: 3625043607559282579, guid: 49e3f97c3bea1f0479a2bf30de3e9c2d, type: 3}
+  - characterName: CSUF
+    characterSprite: {fileID: 21300000, guid: 88eb64f402bc79d4cad183633ef5a87a, type: 3}
+  - characterName: Filthy Frank
+    characterSprite: {fileID: 21300000, guid: 2beb99ab79abe204bb90b110f10bdc10, type: 3}
+  - characterName: Walter White
+    characterSprite: {fileID: 21300000, guid: c2811ca20ea697f46af5320f19eac4db, type: 3}
+  - characterName: Batman Beyond
+    characterSprite: {fileID: 21300000, guid: 328f875a2227a5e46af7ba3a7137b28a, type: 3}

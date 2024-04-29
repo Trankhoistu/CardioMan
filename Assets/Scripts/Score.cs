@@ -19,6 +19,11 @@ public class Score : MonoBehaviour
     [SerializeField]
     private FloatSO scoreSO;
 
+    public float magnetRange = 5f;
+	public float magnetForce = 10f;
+
+    public PlayfabManager playfabManager;
+
     public Score(string name, int score)
     {
         this.playerName = name;
@@ -46,6 +51,16 @@ public class Score : MonoBehaviour
         //MyscoreText.text = "Score: " + scoreSO.Value;
     }
 
+    public int GetCurrentScore()
+    {
+        return ScoreNum;
+    }
+
+    public float GetScoreSOValue()
+    {
+        return scoreSO.Value;
+    }
+
     private void OnTriggerEnter2D(Collider2D Coin)
     {
         if (Coin.tag == "MyCoin")
@@ -59,7 +74,53 @@ public class Score : MonoBehaviour
             // MyscoreText.text = "Score: " + ScoreNum;
             // New
             MyscoreText.text = "Score: " + scoreSO.Value;
+
+            // new
+            if (scoreSO.Value > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                // Save the new high score to PlayerPrefs
+                PlayerPrefs.SetInt("HighScore", (int)scoreSO.Value);
+                PlayerPrefs.Save();
+            }
         }
+        if (Coin.tag == "Gem")
+        {
+            scoreSO.Value *= 2;
+            Destroy(Coin.gameObject);
+            MyscoreText.text = "Score: " + scoreSO.Value;
+            if (scoreSO.Value > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                // Save the new high score to PlayerPrefs
+                PlayerPrefs.SetInt("HighScore", (int)scoreSO.Value);
+                PlayerPrefs.Save();
+            }
+        }
+        if (Coin.tag == "Stud")
+        {
+            scoreSO.Value *= 3;
+            Destroy(Coin.gameObject);
+            MyscoreText.text = "Score: " + scoreSO.Value;
+            if (scoreSO.Value > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                // Save the new high score to PlayerPrefs
+                PlayerPrefs.SetInt("HighScore", (int)scoreSO.Value);
+                PlayerPrefs.Save();
+            }
+        }
+        if (Coin.tag == "Magnet")
+		{
+			// Activate the coin magnet
+			Collider2D[] nearbyCoins = Physics2D.OverlapCircleAll(transform.position, magnetRange);
+			foreach (Collider2D coinCollider in nearbyCoins)
+			{
+				if (coinCollider.CompareTag("MyCoin"))
+				{
+					Vector2 direction = (transform.position - coinCollider.transform.position).normalized;
+					coinCollider.GetComponent<Rigidbody2D>().AddForce(direction * magnetForce);
+				}
+			}
+			Destroy(Coin.gameObject);
+		}
     }
 
     public void LoadSceneAndKeepValue()
@@ -77,4 +138,30 @@ public class Score : MonoBehaviour
 
     //     }
     // }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "WinScreen")
+        {
+            if (playfabManager != null && scoreSO != null)
+            {
+                int scoreAsInt = (int)scoreSO.Value;  // Truncate the decimal
+                playfabManager.SendLeaderboard(scoreAsInt);
+            }
+            else
+            {
+                Debug.LogError("PlayfabManager or scoreSO reference not set.");
+            }
+        }
+    }
 }

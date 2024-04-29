@@ -7,19 +7,30 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
+    private float originalJumpingPower;
+    private float originalSpeed;
     private bool isFacingRight = true;
     private bool isGrounded;
-
+    private bool isSpeedBoosted = false;  // Track if speed boost is active
+    private bool isJumpBoosted = false;  // Track if jump boost is active
+   
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+   
+    private void Awake()
+    {
+        originalSpeed = speed;  // Set original speed
+        originalJumpingPower = jumpingPower;  // Set original jumping power
+    }
+   
     // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         isGrounded = IsGrounded();
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == false)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             Debug.Log("Jump");
@@ -29,21 +40,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
-        // // Input.GetButtonDown("Jump")
-        // if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-        // {
-        //     rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        //     Debug.Log("jump");
-
-        // }
-
-        // // Input.GetButtonUp("Jump")
-        // else if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f)
-        // {
-        //     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        //     Debug.Log("Jump");
-        // }
 
         Flip();
     }
@@ -73,6 +69,26 @@ public class PlayerMovement : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+
+    public IEnumerator ActivatePowerup(Powerup.PowerupType type, float duration)
+    {
+        if (type == Powerup.PowerupType.SpeedBoost && !isSpeedBoosted)
+        {
+            speed *= 1.5f;
+            isSpeedBoosted = true;  // Set speed boost flag
+            yield return new WaitForSeconds(duration);
+            speed = originalSpeed;  // Reset to original speed
+            isSpeedBoosted = false;  // Reset flag
+        }
+        else if (type == Powerup.PowerupType.JumpBoost && !isJumpBoosted)
+        {
+            jumpingPower *= 1.5f;
+            isJumpBoosted = true;  // Set jump boost flag
+            yield return new WaitForSeconds(duration);
+            jumpingPower = originalJumpingPower;  // Reset to original jumping power
+            isJumpBoosted = false;  // Reset flag
         }
     }
 }

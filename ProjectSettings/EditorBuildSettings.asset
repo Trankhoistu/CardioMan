@@ -6,36 +6,87 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes 1/MainMenu.unity
     guid: 16c3be8f809d4e8409c450b2902bc635
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4816ba638db17604e8c9f4c175416d12
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: 62181ac6aa9626a46ab2c511db18c41e
+  - enabled: 0
     path: Assets/Scenes 1/Character Selection.unity
     guid: dcda24190401830499168af4651b3a52
   - enabled: 1
+    path: Assets/Scenes/Character Selection.unity
+    guid: 23eacd283958df34880db6b551f528bb
+  - enabled: 1
+    path: Assets/Scenes/Level_0.unity
+    guid: 2f7c5fadf99235448850037b435a4c9a
+  - enabled: 1
+    path: Assets/Scenes/Level_1.unity
+    guid: 4f106a686b307194a9f87b8444207e8c
+  - enabled: 1
+    path: Assets/Scenes/Level_2.unity
+    guid: d5ba70c882392c24a8fb7b303a9f3693
+  - enabled: 0
+    path: Assets/Scenes 1/Level_3.unity
+    guid: 8a7a0457b999e1f4a9aea4fcecfbf972
+  - enabled: 0
     path: Assets/Scenes 1/Level_0.unity
     guid: 604cd851994420640a30c34ff378aedb
-  - enabled: 1
-    path: Assets/Scenes 1/InfoScreen.unity
-    guid: 1f5f720333792b6498c3fcf50de2f91c
-  - enabled: 1
-    path: Assets/Scenes 1/Leaderboard.unity
-    guid: 4982d415e4c0e5f42938da0a92d90e3f
-  - enabled: 1
-    path: Assets/Scenes 1/SettingsMenu.unity
-    guid: 48be201d16f544a479c86cddae0f1f57
-  - enabled: 1
-    path: Assets/Scenes 1/DeathScreen.unity
-    guid: 95e9a84e276e1a047add577a0e94be58
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes 1/Level_1.unity
     guid: 69f413f6a1a554741b8170bbbd7a5ff4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes 1/Level_2.unity
     guid: 721c7d3665c60f94dbc4cf11d808da69
   - enabled: 1
-    path: Assets/Scenes 1/Level_3.unity
-    guid: 8a7a0457b999e1f4a9aea4fcecfbf972
+    path: Assets/Scenes/Level_3.unity
+    guid: 7abbd426de61cdf45a0ed9e645ae9a5e
+  - enabled: 1
+    path: Assets/Scenes/Level_3Decision.unity
+    guid: 99c63c56db4a6274681f12aa1eef3380
+  - enabled: 1
+    path: Assets/Scenes/Level_3Boss.unity
+    guid: 7f330b8c027c856419f6453f3e8b3b54
+  - enabled: 1
+    path: Assets/Scenes/Level_3Spike.unity
+    guid: eacdf0d493ef0f5478ab3fdd69d08c63
+  - enabled: 1
+    path: Assets/Scenes/Level_4.unity
+    guid: 77c8818ed8652874988fa52258fe20dd
+  - enabled: 1
+    path: Assets/Scenes/Level_4Decision.unity
+    guid: e58d37198944c544b884737cd2f14245
+  - enabled: 1
+    path: Assets/Scenes/Level_4extra.unity
+    guid: 20f89fcf557c34748aaadae04d0e4fcd
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: b3af25ad65ea0bb41a898ae2ae0a701f
+  - enabled: 0
+    path: Assets/Scenes 1/Leaderboard.unity
+    guid: 4982d415e4c0e5f42938da0a92d90e3f
+  - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: fe04b5be77ddc2948a1d20efac61f73c
+  - enabled: 0
+    path: Assets/Scenes 1/InfoScreen.unity
+    guid: 1f5f720333792b6498c3fcf50de2f91c
+  - enabled: 1
+    path: Assets/Scenes/InfoScreen.unity
+    guid: f6b64022c0b24504dba605339690189b
+  - enabled: 0
+    path: Assets/Scenes 1/SettingsMenu.unity
+    guid: 48be201d16f544a479c86cddae0f1f57
+  - enabled: 1
+    path: Assets/Scenes/SettingsMenu.unity
+    guid: 81a2e4ffb25efd34980458bbd426aa29
+  - enabled: 0
+    path: Assets/Scenes 1/DeathScreen.unity
+    guid: 95e9a84e276e1a047add577a0e94be58
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: 5c4bce0f9382bac4a94746bbf8240c53
   m_configObjects: {}
